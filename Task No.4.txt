@@ -1,0 +1,1 @@
+Get-WmiObject win32_service | Select Name, DisplayName, State, StartMode | Sort State, Name

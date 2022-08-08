@@ -1,0 +1,2 @@
+$CpuCores = (Get-WMIObject Win32_ComputerSystem).NumberOfLogicalProcessors
+(Get-Counter "\Process(*)\% Processor Time").CounterSamples | Select InstanceName, @{Name="CPU %";Expression={[Decimal]::Round(($_.CookedValue / $CpuCores), 2)}}
